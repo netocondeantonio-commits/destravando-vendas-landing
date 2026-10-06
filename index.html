@@ -10,15 +10,16 @@
     />
 
     <!-- Primary Meta Tags -->
-    <title>Destravando as Vendas — Curso de Seller</title>
+    <title>Curso de Marketplaces com IA | Destravando as Vendas</title>
     <meta
       name="title"
-      content="Destravando as Vendas — Curso de Seller"
+      content="Curso de Marketplaces com IA | Destravando as Vendas"
     />
     <meta
       name="description"
-      content="Curso de seller pra Shopee, Shein, TikTok Shop, Kwai e Temu: do zero ao avançado, com IA e ferramentas pra vender todo dia."
+      content="Aprenda a organizar sua loja, precificar e criar anúncios para Shopee, Shein, TikTok Shop, Kwai e Temu. Conheça as trilhas e os planos."
     />
+    <link rel="canonical" href="https://curso.liquix.tech/" />
     <!-- Open Graph / Facebook -->
     <meta
       property="og:type"
@@ -65,6 +66,43 @@
       name="twitter:image"
       content="https://curso.liquix.tech/og.png"
     />
+
+    <!-- Dados estruturados (factual) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://curso.liquix.tech/#org",
+          "name": "Liquix",
+          "url": "https://liquix.tech"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://curso.liquix.tech/#site",
+          "url": "https://curso.liquix.tech/",
+          "name": "Destravando as Vendas",
+          "inLanguage": "pt-BR",
+          "publisher": { "@id": "https://curso.liquix.tech/#org" }
+        },
+        {
+          "@type": "Course",
+          "name": "Destravando as Vendas",
+          "description": "Curso de seller para Shopee, Shein, TikTok Shop, Kwai e Temu: do zero ao avançado, com IA e ferramentas.",
+          "inLanguage": "pt-BR",
+          "url": "https://curso.liquix.tech/",
+          "provider": { "@id": "https://curso.liquix.tech/#org" },
+          "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online" },
+          "offers": [
+            { "@type": "Offer", "name": "Starter", "price": "54.00", "priceCurrency": "BRL", "category": "Paid", "url": "https://pagamentos.liquix.tech/comprar?plano=starter" },
+            { "@type": "Offer", "name": "Pro", "price": "112.00", "priceCurrency": "BRL", "category": "Paid", "url": "https://pagamentos.liquix.tech/comprar?plano=pro" },
+            { "@type": "Offer", "name": "Premium", "price": "227.00", "priceCurrency": "BRL", "category": "Paid", "url": "https://pagamentos.liquix.tech/comprar?plano=premium" }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
