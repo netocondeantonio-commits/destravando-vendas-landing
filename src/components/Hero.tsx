@@ -1,56 +1,54 @@
-import { Button } from "./ui/button";
 import { buttonVariants } from "./ui/button";
-import { HeroCards } from "./HeroCards";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export const Hero = () => {
   return (
-    <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
-      <div className="text-center lg:text-start space-y-6">
-        <main className="text-5xl md:text-6xl font-bold">
-          <h1 className="inline">
-            <span className="inline bg-gradient-to-r from-[#F596D3]  to-[#D247BF] text-transparent bg-clip-text">
-              Shadcn
-            </span>{" "}
-            landing page
-          </h1>{" "}
-          for{" "}
-          <h2 className="inline">
-            <span className="inline bg-gradient-to-r from-[#61DAFB] via-[#1fc0f1] to-[#03a3d7] text-transparent bg-clip-text">
-              React
-            </span>{" "}
-            developers
-          </h2>
-        </main>
-
-        <p className="text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          Build your React landing page effortlessly with the required sections
-          to your project.
-        </p>
-
-        <div className="space-y-4 md:space-y-0 md:space-x-4">
-          <Button className="w-full md:w-1/3">Get Started</Button>
-
-          <a
-            rel="noreferrer noopener"
-            href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-            target="_blank"
-            className={`w-full md:w-1/3 ${buttonVariants({
-              variant: "outline",
-            })}`}
-          >
-            Github Repository
-            <GitHubLogoIcon className="ml-2 w-5 h-5" />
-          </a>
-        </div>
+    <section className="container py-20 md:py-28 text-center max-w-4xl mx-auto space-y-6">
+      <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-primary/30 rounded-full px-3 py-1">
+        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+        Conteúdo novo toda semana
       </div>
 
-      {/* Hero cards sections */}
-      <div className="z-10">
-        <HeroCards />
+      <main className="text-5xl md:text-6xl font-bold leading-[1.1]">
+        <h1 className="inline">
+          Transforme sua loja numa{" "}
+          <span className="inline bg-gradient-to-r from-[#15d6b6] to-[#0e8c7f] text-transparent bg-clip-text">
+            máquina de vendas
+          </span>
+        </h1>
+      </main>
+
+      <p className="text-xl text-muted-foreground mx-auto max-w-2xl">
+        O que todo vendedor quer é o mesmo:{" "}
+        <strong className="text-foreground">vender todo dia</strong>. Aqui está o
+        método completo pra você sair do zero e escalar nos 5 maiores marketplaces
+        — Shopee, Shein, TikTok Shop, Kwai e Temu — com anúncio que vende, tráfego,
+        afiliados e IA pra operar a loja.
+      </p>
+
+      <div className="space-y-4 md:space-y-0 md:space-x-4">
+        <a href="#pricing" className={`w-full md:w-auto px-8 ${buttonVariants()}`}>
+          Quero vender mais
+        </a>
+        <a
+          rel="noreferrer noopener"
+          href="#features"
+          className={`w-full md:w-auto px-8 ${buttonVariants({ variant: "outline" })}`}
+        >
+          Ver o que você recebe
+        </a>
       </div>
 
-      {/* Shadow effect */}
+      <p className="text-sm text-muted-foreground pt-2">
+        Grátis:{" "}
+        <a
+          href="/calculadora.html"
+          className="text-primary font-semibold underline underline-offset-2"
+        >
+          Calculadora de Lucro do Seller
+        </a>{" "}
+        — veja quanto sobra em cada marketplace.
+      </p>
+
       <div className="shadow"></div>
     </section>
   );

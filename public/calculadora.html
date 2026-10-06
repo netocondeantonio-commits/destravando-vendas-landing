@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Lucro do Seller — Destravando as Vendas</title>
+<meta name="description" content="Descubra o lucro real do seu produto em Shopee, Mercado Livre, Shein, TikTok Shop, Kwai e Temu. Taxas atualizadas 2026.">
+<style>
+:root{--bg:#06110f;--ink:#eafaf5;--mut:#8fb3aa;--teal:#15d6b6;--teal2:#0e8c7f;--line:#17302b;--card:#0c1a17;--red:#ff7b7b;--green:#2fe3b6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh;padding:22px;overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(72px);opacity:.3;z-index:0}
+.orb.a{width:360px;height:360px;background:#15d6b6;top:-120px;right:-90px}
+.orb.b{width:300px;height:300px;background:#0e8c7f;bottom:-120px;left:-90px}
+.wrap{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.5rem;font-weight:800;margin-bottom:.3rem}
+.m{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#15d6b6,#0e8c7f);color:#04211d;font-weight:900}
+h1{font-size:1.5rem;margin:.4rem 0 .2rem}
+.sub{color:var(--mut);margin-bottom:1.2rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.2rem}
+h2{font-size:1rem;margin:0 0 .8rem}
+.mkts{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.mkt{padding:.5rem .8rem;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-weight:700;font-size:.85rem;color:var(--mut);background:#071512}
+.mkt.sel{background:linear-gradient(135deg,#15d6b6,#0e8c7f);color:#04211d;border-color:transparent}
+label{display:block;font-size:.8rem;color:var(--mut);margin:.7rem 0 .25rem}
+input[type=number]{width:100%;padding:.7rem .8rem;border-radius:11px;border:1px solid var(--line);background:#071512;color:var(--ink);font-size:1.05rem}
+input:focus{outline:none;border-color:var(--teal)}
+.tog{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:.85rem;color:var(--ink)}
+.row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.row .v{font-weight:700}
+.big{text-align:center;margin:.6rem 0}
+.big .n{font-size:2.4rem;font-weight:900;line-height:1}
+.big .l{color:var(--mut);font-size:.8rem;margin-top:.3rem}
+.g{color:var(--green)} .r{color:var(--red)}
+.note{font-size:.78rem;color:var(--mut);margin-top:.7rem;line-height:1.4}
+.sug{margin-top:1rem;background:#071512;border:1px dashed var(--teal2);border-radius:12px;padding:.9rem}
+.sug .big2{font-size:1.5rem;font-weight:800;color:var(--teal)}
+.cta{display:block;text-align:center;margin-top:1.4rem;padding:.9rem;border-radius:12px;background:linear-gradient(135deg,#15d6b6,#0e8c7f);color:#04211d;font-weight:800;text-decoration:none}
+a{color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="orb a"></div><div class="orb b"></div>
+<div class="wrap">
+  <div class="brand"><span class="m">D</span>Destravando as Vendas</div>
+  <h1>Calculadora de Lucro do Seller</h1>
+  <div class="sub">Veja o <b>lucro real</b> do seu produto em cada marketplace — com as taxas de 2026 já embutidas.</div>
+
+  <div class="mkts" id="mkts"></div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Seus números</h2>
+      <label>Custo do produto (R$)</label><input type="number" id="custo" value="20" step="0.01" min="0">
+      <label>Preço de venda (R$)</label><input type="number" id="preco" value="60" step="0.01" min="0">
+      <label>Frete/embalagem que VOCÊ paga (R$) <span style="font-weight:400">— opcional</span></label><input type="number" id="envio" value="0" step="0.01" min="0">
+      <div id="toggles"></div>
+    </div>
+
+    <div class="card">
+      <h2>Seu resultado</h2>
+      <div class="big"><div class="n" id="lucroN">—</div><div class="l" id="margemL">margem</div></div>
+      <div class="row"><span>Comissão</span><span class="v" id="comis">—</span></div>
+      <div class="row"><span>Taxa fixa</span><span class="v" id="fixa">—</span></div>
+      <div class="row"><span>Total de taxas</span><span class="v" id="taxas">—</span></div>
+      <div class="row"><span>Você recebe</span><span class="v" id="recebe">—</span></div>
+      <div class="sug">
+        <label style="margin-top:0">Quero lucrar <input type="number" id="alvo" value="30" step="1" min="0" style="width:70px;display:inline-block;padding:.3rem .4rem"> % — preço ideal:</label>
+        <div class="big2" id="precoSug">—</div>
+      </div>
+      <div class="note" id="note"></div>
+    </div>
+  </div>
+
+  <a class="cta" href="https://curso.liquix.tech">Quer aprender a vender de verdade nos 5 marketplaces? Conheça o curso →</a>
+</div>
+<script>
+var MKT=[
+ {k:"shopee",n:"Shopee"},{k:"ml",n:"Mercado Livre"},{k:"shein",n:"Shein"},
+ {k:"tiktok",n:"TikTok Shop"},{k:"kwai",n:"Kwai"},{k:"temu",n:"Temu"}
+];
+var cur="shopee";
+var TOG={shopee:[["cpf450","Pessoa física com +450 pedidos/90 dias (+R$3/item)"]],
+         kwai:[["novoK","Novo vendedor (primeiros 45 dias: 14%)"]],
+         shein:[["novoS","Novo vendedor (isenção de 90 dias)"]],
+         tiktok:[["freteT","Aderi ao Frete Grátis (+6%)"]]};
+var NOTE={
+ shopee:"Shopee 2026: faixas por preço + taxa fixa. Frete grátis embutido. +R$3/item se CPF passar de 450 pedidos/90 dias.",
+ ml:"Mercado Livre Clássico ~13% + custo fixo abaixo de R$79. Acima de R$79 tem frete grátis por peso/região (calcule à parte).",
+ shein:"Shein: 16% sobre o preço menos descontos. Sem taxa fixa. Novos vendedores têm 90 dias de isenção.",
+ tiktok:"TikTok Shop: <R$50 = 10%+R$4; ≥R$50 = 6%+R$6. Só CNPJ. Frete grátis opcional soma +6%.",
+ kwai:"Kwai: 20%+R$4 por item (14% nos primeiros 45 dias). Pode variar por categoria.",
+ temu:"Temu: sem taxa de comissão pro vendedor — você recebe o valor cheio do produto."
+};
+function fees(k,p){
+ var g=document.getElementById; var t=function(id){var e=document.getElementById(id);return e&&e.checked;};
+ var com=0,fix=0;
+ if(k==="shopee"){
+   if(p<=7.99){com=p*0.5;fix=0;}
+   else if(p<80){com=p*0.20;fix=4;}
+   else if(p<100){com=p*0.14;fix=16;}
+   else if(p<200){com=p*0.14;fix=20;}
+   else{com=p*0.14;fix=26;}
+   if(t("cpf450"))fix+=3;
+ }else if(k==="ml"){
+   com=p*0.13; fix = p<29?6.25 : p<50?6.50 : p<79?6.75 : 0;
+ }else if(k==="shein"){
+   com = t("novoS")?0:p*0.16; fix=0;
+ }else if(k==="tiktok"){
+   if(p<50){com=p*0.10;fix=4;}else{com=p*0.06;fix=6;}
+   if(t("freteT"))com+=p*0.06;
+ }else if(k==="kwai"){
+   com = p*(t("novoK")?0.14:0.20); fix=4;
+ }else if(k==="temu"){ com=0; fix=0; }
+ return {com:com,fix:fix};
+}
+function brl(n){return 'R$ '+(n||0).toFixed(2).replace('.',',');}
+function calc(){
+ var custo=+document.getElementById('custo').value||0;
+ var preco=+document.getElementById('preco').value||0;
+ var envio=+document.getElementById('envio').value||0;
+ var f=fees(cur,preco); var taxas=f.com+f.fix; var recebe=preco-taxas; var lucro=recebe-custo-envio;
+ var margem=preco>0?(lucro/preco*100):0;
+ document.getElementById('comis').textContent=brl(f.com);
+ document.getElementById('fixa').textContent=brl(f.fix);
+ document.getElementById('taxas').textContent=brl(taxas);
+ document.getElementById('recebe').textContent=brl(recebe);
+ var ln=document.getElementById('lucroN'); ln.textContent=brl(lucro); ln.className='n '+(lucro>=0?'g':'r');
+ document.getElementById('margemL').textContent='margem de '+margem.toFixed(1).replace('.',',')+'%'+(lucro<0?' (PREJUÍZO)':'');
+ // preço sugerido p/ alvo
+ var alvo=(+document.getElementById('alvo').value||0)/100;
+ var sug=null;
+ for(var p=Math.max(0.5,custo+envio); p<100000; p+=0.5){
+   var ff=fees(cur,p); var lu=p-ff.com-ff.fix-custo-envio;
+   if(p>0 && lu/p>=alvo){sug=p;break;}
+ }
+ document.getElementById('precoSug').textContent=sug?brl(Math.ceil(sug*100)/100):'—';
+ document.getElementById('note').textContent=NOTE[cur];
+}
+function renderMkts(){
+ var el=document.getElementById('mkts'); el.innerHTML='';
+ MKT.forEach(function(m){var d=document.createElement('div');d.className='mkt'+(m.k===cur?' sel':'');d.textContent=m.n;
+   d.onclick=function(){cur=m.k;renderMkts();renderToggles();calc();};el.appendChild(d);});
+}
+function renderToggles(){
+ var el=document.getElementById('toggles'); el.innerHTML='';
+ (TOG[cur]||[]).forEach(function(t){var w=document.createElement('label');w.className='tog';
+   w.innerHTML='<input type="checkbox" id="'+t[0]+'"><span>'+t[1]+'</span>';el.appendChild(w);
+   w.querySelector('input').addEventListener('change',calc);});
+}
+['custo','preco','envio','alvo'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+renderMkts();renderToggles();calc();
+</script>
+</body>
+</html>

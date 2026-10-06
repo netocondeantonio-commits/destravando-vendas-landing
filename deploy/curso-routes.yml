@@ -1,0 +1,14 @@
+http:
+  routers:
+    curso:
+      rule: "Host(`curso.liquix.tech`)"
+      entryPoints: ["websecure"]
+      priority: 1000
+      service: curso
+      tls:
+        certResolver: letsencrypt
+  services:
+    curso:
+      loadBalancer:
+        servers:
+          - url: "http://__IP__:80"

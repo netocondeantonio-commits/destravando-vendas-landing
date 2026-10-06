@@ -18,57 +18,58 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    title: "Responsive Design",
+    title: "Mais vendas, no método",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Do primeiro anúncio à escala: título que converte, as palavras-chave certas, como o algoritmo te entrega mais e como virar visita em pedido. Cada aula termina numa ação prática.",
     image: image4,
   },
   {
-    title: "Intuitive user interface",
+    title: "As 5 plataformas, sem achismo",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Trilha própria pra Shopee, Shein, TikTok Shop, Kwai e Temu: taxas, motor de busca, promoções e as punições de cada uma — pra você não perder venda por detalhe.",
     image: image3,
   },
   {
-    title: "AI-Powered insights",
+    title: "IA pra operar a loja sozinho",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Use IA pra criar e otimizar anúncios, responder cliente, cuidar da reputação, prever estoque e ler suas métricas. Mais planilhas com fórmulas e o Kit do Seller.",
     image: image,
   },
 ];
 
 const featureList: string[] = [
-  "Dark/Light theme",
-  "Reviews",
-  "Features",
-  "Pricing",
-  "Contact form",
-  "Our team",
-  "Responsive design",
-  "Newsletter",
-  "Minimalist",
+  "Fundamentos",
+  "Anúncio & SEO",
+  "Palavras-chave",
+  "Algoritmo",
+  "Tráfego & Lives",
+  "Afiliados",
+  "IA pra gerenciar a loja",
+  "Planilhas",
+  "Operar a loja",
+  "Kit do Seller",
 ];
 
 export const Features = () => {
   return (
-    <section
-      id="features"
-      className="container py-24 sm:py-32 space-y-8"
-    >
+    <section id="features" className="container py-24 sm:py-32 space-y-8">
       <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-        Many{" "}
+        Tudo o que você precisa pra{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Great Features
+          vender todo dia
         </span>
       </h2>
+
+      <p className="md:text-center text-lg text-muted-foreground max-w-2xl mx-auto">
+        Nada de teoria solta. É o passo a passo que todo vendedor procura: montar a
+        loja, fazer o anúncio aparecer, gerar tráfego e transformar visita em venda —
+        e repetir isso toda semana, agora com a IA fazendo o trabalho pesado por você.
+      </p>
 
       <div className="flex flex-wrap md:justify-center gap-4">
         {featureList.map((feature: string) => (
           <div key={feature}>
-            <Badge
-              variant="secondary"
-              className="text-sm"
-            >
+            <Badge variant="secondary" className="text-sm">
               {feature}
             </Badge>
           </div>
@@ -87,7 +88,7 @@ export const Features = () => {
             <CardFooter>
               <img
                 src={image}
-                alt="About feature"
+                alt={title}
                 className="w-[200px] lg:w-[300px] mx-auto"
               />
             </CardFooter>

@@ -2,23 +2,34 @@ export const LogoIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="lucide lucide-panels-top-left mr-2 w-6 h-6"
+      viewBox="0 0 48 48"
+      className="mr-1 w-7 h-7"
+      role="img"
+      aria-label="Destravando as Vendas"
     >
-      <rect
-        width="18"
-        height="18"
-        x="3"
-        y="3"
-        rx="2"
+      <defs>
+        <linearGradient id="dvLogo" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#15d6b6" />
+          <stop offset="1" stopColor="#0e8c7f" />
+        </linearGradient>
+      </defs>
+      <rect width="48" height="48" rx="12" fill="url(#dvLogo)" />
+      <path
+        d="M12 31 L20.5 22.5 L26.5 27 L35 17.5"
+        fill="none"
+        stroke="#04211d"
+        strokeWidth="3.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d="M3 9h18" />
-      <path d="M9 21V9" />
+      <path
+        d="M28.5 17.5 L35 17.5 L35 24"
+        fill="none"
+        stroke="#04211d"
+        strokeWidth="3.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };

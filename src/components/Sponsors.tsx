@@ -1,56 +1,31 @@
-import { Radar } from "lucide-react";
-
-interface SponsorProps {
-  icon: JSX.Element;
+interface PlatformProps {
   name: string;
+  cls: string;
 }
 
-const sponsors: SponsorProps[] = [
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 1",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 2",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 3",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 4",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 5",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 6",
-  },
+const platforms: PlatformProps[] = [
+  { name: "Shopee", cls: "text-[#ee4d2d]" },
+  { name: "Shein", cls: "text-foreground" },
+  { name: "TikTok Shop", cls: "text-[#fe2c55]" },
+  { name: "Kwai", cls: "text-[#ffa100]" },
+  { name: "Temu", cls: "text-[#fb7701]" },
 ];
 
 export const Sponsors = () => {
   return (
-    <section
-      id="sponsors"
-      className="container pt-24 sm:py-32"
-    >
-      <h2 className="text-center text-md lg:text-xl font-bold mb-8 text-primary">
-        Investors and founders
+    <section id="plataformas" className="container pt-6 pb-12">
+      <h2 className="text-center text-sm font-semibold tracking-wide uppercase text-muted-foreground mb-7">
+        Um método pra vender nos 5 maiores marketplaces
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-        {sponsors.map(({ icon, name }: SponsorProps) => (
-          <div
+      <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-x-14">
+        {platforms.map(({ name, cls }: PlatformProps) => (
+          <span
             key={name}
-            className="flex items-center gap-1 text-muted-foreground/60"
+            className={`text-2xl md:text-3xl font-extrabold tracking-tight opacity-75 hover:opacity-100 transition-opacity ${cls}`}
           >
-            <span>{icon}</span>
-            <h3 className="text-xl  font-bold">{name}</h3>
-          </div>
+            {name}
+          </span>
         ))}
       </div>
     </section>

@@ -13,77 +13,64 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free ChadcnUI template.",
+    question: "Preciso ter CNPJ para começar?",
+    answer:
+      "Para afiliado, não precisa (basta CPF). Para vender como lojista, a maioria das plataformas pede CNPJ/MEI — e o curso mostra como abrir e organizar isso.",
     value: "item-1",
   },
   {
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+    question: "Funciona para quem nunca vendeu?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+      "Sim. A primeira trilha é do zero, com uma vitória rápida logo no começo. Você avança no seu ritmo.",
     value: "item-2",
   },
   {
-    question:
-      "Lorem ipsum dolor sit amet  Consectetur natus dolores minus quibusdam?",
+    question: "O conteúdo fica desatualizado?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore qui nostrum reiciendis veritatis necessitatibus maxime quis ipsa vitae cumque quo?",
+      "Não. As plataformas mudam o tempo todo e o curso é atualizado toda semana com novas estratégias, dicas e ferramentas — sem pagar de novo.",
     value: "item-3",
   },
   {
-    question: "Lorem ipsum dolor sit amet, consectetur adipisicing elit?",
-    answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+    question: "Serve para afiliado (vender sem estoque)?",
+    answer:
+      "Sim. Tem uma trilha inteira de afiliados: como entrar nos programas, escolher produto, divulgar e bater a primeira comissão.",
     value: "item-4",
   },
   {
-    question:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur natus?",
+    question: "Como pago e quando libera o acesso?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
+      "Por Pix ou cartão. O acesso é liberado automaticamente assim que o pagamento é confirmado, no e-mail que você informar.",
     value: "item-5",
   },
 ];
 
 export const FAQ = () => {
   return (
-    <section
-      id="faq"
-      className="container py-24 sm:py-32"
-    >
+    <section id="faq" className="container py-24 sm:py-32">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Frequently Asked{" "}
+        Perguntas{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Questions
+          frequentes
         </span>
       </h2>
 
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full AccordionRoot"
-      >
+      <Accordion type="single" collapsible className="w-full AccordionRoot">
         {FAQList.map(({ question, answer, value }: FAQProps) => (
-          <AccordionItem
-            key={value}
-            value={value}
-          >
-            <AccordionTrigger className="text-left">
-              {question}
-            </AccordionTrigger>
-
+          <AccordionItem key={value} value={value}>
+            <AccordionTrigger className="text-left">{question}</AccordionTrigger>
             <AccordionContent>{answer}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
 
       <h3 className="font-medium mt-4">
-        Still have questions?{" "}
+        Ainda com dúvida?{" "}
         <a
           rel="noreferrer noopener"
-          href="#"
+          href="#pricing"
           className="text-primary transition-all border-primary hover:border-b-2"
         >
-          Contact us
+          Veja os planos
         </a>
       </h3>
     </section>
