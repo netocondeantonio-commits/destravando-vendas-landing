@@ -14,7 +14,6 @@ import {
 import { buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
-import { LogoIcon } from "./Icons";
 
 interface RouteProps {
   href: string;
@@ -40,7 +39,11 @@ export const Navbar = () => {
               href="/"
               className="ml-2 font-bold text-xl flex items-center gap-2"
             >
-              <LogoIcon />
+              <img
+                src="/logo-icon.png"
+                alt="Destravando as Vendas"
+                className="h-9 w-9 rounded-lg"
+              />
               Destravando as Vendas
             </a>
           </NavigationMenuItem>
